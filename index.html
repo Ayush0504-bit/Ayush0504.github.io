@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayush Gajbhiye — AI Engineer & Full-Stack Developer</title>
+  <meta name="description"
+    content="Personal portfolio of Ayush A Gajbhiye — AI Engineer, Full-Stack Developer, and WebRTC Builder based in Nagpur, India." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">AG<span class="dot">.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content reveal">
+      <div class="hero-avatar-wrapper">
+        <div class="avatar-ring"></div>
+        <img src="profile.jpg" alt="Ayush A Gajbhiye" class="hero-avatar" id="heroAvatar"
+          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'160\' height=\'160\' viewBox=\'0 0 160 160\'%3E%3Ccircle cx=\'80\' cy=\'80\' r=\'80\' fill=\'%23E8611A\'/%3E%3Ccircle cx=\'80\' cy=\'65\' r=\'30\' fill=\'%23FFF5EB\'/%3E%3Cellipse cx=\'80\' cy=\'145\' rx=\'50\' ry=\'40\' fill=\'%23FFF5EB\'/%3E%3C/svg%3E'" />
+      </div>
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Ayush <br /><span class="name-accent">Gajbhiye</span></h1>
+      <div class="typed-wrapper">
+        <span class="typed-prefix">I'm a </span>
+        <span id="typedText" class="typed-text"></span>
+        <span class="typed-cursor">|</span>
+      </div>
+      <p class="hero-tagline">Building intelligent systems &amp; immersive digital experiences from Nagpur, India.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-secondary">Let's Connect</a>
+      </div>
+      <div class="hero-social">
+        <a href="mailto:ayushgajbhiye651@gmail.com" class="social-icon" title="Email" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/ayush-gajbhiye" target="_blank" class="social-icon" title="LinkedIn"
+          aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+        <a href="https://github.com/sahil007-ai" target="_blank" class="social-icon" title="GitHub" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Get to Know Me</span>
+        <h2 class="section-title">About <span class="accent">Me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="about-lead">
+            Motivated 2nd-year Artificial Intelligence student with hands-on experience building full-stack
+            applications, real-time communication platforms, and gamified productivity tools.
+          </p>
+          <p class="about-body">
+            Completed <strong>Google AI-ML</strong> and <strong>Android Development</strong> virtual internships.
+            Skilled in Python, JavaScript, Node.js, WebRTC, and SQLite. Passionate about applying AI and software
+            engineering to solve real-world problems.
+          </p>
+          <div class="about-info-grid">
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <div>
+                <span class="info-label">Location</span>
+                <span class="info-value">Nagpur, Maharashtra, India</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📧</span>
+              <div>
+                <span class="info-label">Email</span>
+                <span class="info-value">ayushgajbhiye651@gmail.com</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📱</span>
+              <div>
+                <span class="info-label">Phone</span>
+                <span class="info-value">+91 9370778580</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">🎓</span>
+              <div>
+                <span class="info-label">Expected Graduation</span>
+                <span class="info-value">2027 · CGPA 8.88/10</span>
+              </div>
+            </div>
+          </div>
+          <div class="interests-row">
+            <span class="interest-tag">🤖 Artificial Intelligence</span>
+            <span class="interest-tag">🧠 Machine Learning</span>
+            <span class="interest-tag">💻 Software Engineering</span>
+            <span class="interest-tag">🌐 Full-Stack Dev</span>
+            <span class="interest-tag">📱 Mobile Apps</span>
+          </div>
+        </div>
+        <div class="about-education reveal">
+          <h3 class="edu-title">Education</h3>
+          <div class="edu-card">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-info">
+              <h4>B.Tech in Artificial Intelligence</h4>
+              <p>JD College of Engineering and Management, Nagpur</p>
+              <div class="edu-meta">
+                <span class="edu-badge">CGPA: 8.88/10</span>
+                <span class="edu-year">Expected 2027</span>
+              </div>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-icon">📚</div>
+            <div class="edu-info">
+              <h4>HSC (12th Grade)</h4>
+              <p>Seth Kesrimal Porwal College, Kamptee</p>
+              <div class="edu-meta">
+                <span class="edu-badge">71%</span>
+                <span class="edu-year">2023</span>
+              </div>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-number">8.88</span>
+              <span class="stat-label">CGPA</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">2+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What I Know</span>
+        <h2 class="section-title">Skills &amp; <span class="accent">Technologies</span></h2>
+      </div>
+      <div class="skills-categories reveal">
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Languages</h3>
+          <div class="skills-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">JavaScript (ES6+)</span>
+            <span class="skill-pill">HTML5</span>
+            <span class="skill-pill">CSS3</span>
+            <span class="skill-pill">SQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Frameworks &amp; Libraries</h3>
+          <div class="skills-pills">
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Express.js</span>
+            <span class="skill-pill">WebRTC</span>
+            <span class="skill-pill">Chart.js</span>
+            <span class="skill-pill">SQLite</span>
+            <span class="skill-pill">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Domains</h3>
+          <div class="skills-pills">
+            <span class="skill-pill">Machine Learning</span>
+            <span class="skill-pill">AI Application Dev</span>
+            <span class="skill-pill">Android Development</span>
+            <span class="skill-pill">Full-Stack Web Dev</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Tools</h3>
+          <div class="skills-pills">
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">GitHub</span>
+            <span class="skill-pill">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What I've Built</span>
+        <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card reveal">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">🎮</div>
+            <div class="project-links">
+              <a href="https://github.com/sahil007-ai/raisoni" target="_blank" class="project-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Plan4U</h3>
+          <p class="project-subtitle">Gamified AI Study Planner</p>
+          <p class="project-desc">
+            Full-stack multi-page study planner with AI-style syllabus parser, Pomodoro timer, XP/level/badge
+            gamification engine, Duolingo-inspired push notifications, and Chart.js analytics dashboards with 14+
+            RESTful endpoints.
+          </p>
+          <ul class="project-features">
+            <li>AI-style syllabus parser</li>
+            <li>Pomodoro timer + XP gamification</li>
+            <li>14+ RESTful API endpoints</li>
+            <li>Chart.js analytics dashboards</li>
+          </ul>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">SQLite</span>
+            <span class="project-tag">AI</span>
+            <span class="project-tag">Express.js</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">📹</div>
+            <div class="project-links">
+              <span class="project-link-placeholder" title="Private Repo">🔒</span>
+            </div>
+          </div>
+          <h3 class="project-title">Virtual Classroom</h3>
+          <p class="project-subtitle">with Video Conferencing</p>
+          <p class="project-desc">
+            Real-time virtual classroom platform utilizing WebRTC for peer-to-peer audio/video communication with
+            multi-user session handling and a room-based architecture for seamless collaboration.
+          </p>
+          <ul class="project-features">
+            <li>WebRTC peer-to-peer A/V</li>
+            <li>Multi-user room architecture</li>
+            <li>Screen sharing support</li>
+            <li>Media stream controls</li>
+          </ul>
+          <div class="project-tags">
+            <span class="project-tag">WebRTC</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Real-time</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Credentials</span>
+        <h2 class="section-title">Certifications &amp; <span class="accent">Achievements</span></h2>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card reveal">
+          <div class="cert-badge-wrap">
+            <div class="cert-badge">🤖</div>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">AI-ML Virtual Internship</h3>
+            <p class="cert-issuer">Google</p>
+            <span class="cert-year">2024</span>
+          </div>
+          <div class="cert-ribbon">Google</div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-badge-wrap">
+            <div class="cert-badge">📱</div>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Android Developer Virtual Internship</h3>
+            <p class="cert-issuer">Google</p>
+            <span class="cert-year">2024</span>
+          </div>
+          <div class="cert-ribbon">Google</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="contact-intro">
+            I'm always open to exciting opportunities, collaborations, or just a good conversation about tech. Feel free
+            to reach out!
+          </p>
+          <div class="contact-items">
+            <a href="mailto:ayushgajbhiye651@gmail.com" class="contact-item">
+              <div class="contact-item-icon">📧</div>
+              <div>
+                <span class="contact-item-label">Email</span>
+                <span class="contact-item-value">ayushgajbhiye651@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+919370778580" class="contact-item">
+              <div class="contact-item-icon">📱</div>
+              <div>
+                <span class="contact-item-label">Phone</span>
+                <span class="contact-item-value">+91 9370778580</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/ayush-gajbhiye" target="_blank" class="contact-item">
+              <div class="contact-item-icon">💼</div>
+              <div>
+                <span class="contact-item-label">LinkedIn</span>
+                <span class="contact-item-value">linkedin.com/in/ayush-gajbhiye</span>
+              </div>
+            </a>
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <span class="contact-item-label">Location</span>
+                <span class="contact-item-value">Nagpur, Maharashtra, India</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/mojyapba" method="POST" novalidate>
+          <div class="form-group">
+            <label for="contactName">Your Name</label>
+            <input type="text" id="contactName" name="name" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Your Email</label>
+            <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="contactSubject">Subject</label>
+            <input type="text" id="contactSubject" name="subject" placeholder="Let's collaborate!" />
+          </div>
+          <div class="form-group">
+            <label for="contactMsg">Message</label>
+            <textarea id="contactMsg" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit" id="submitBtn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-icon">→</span>
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✅ Thanks! I'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo">AG<span class="dot">.</span></a>
+      <p class="footer-tagline">Building tomorrow's technology, today.</p>
+      <div class="footer-social">
+        <a href="mailto:ayushgajbhiye651@gmail.com" class="social-icon" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/ayush-gajbhiye" target="_blank" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+        <a href="https://github.com/sahil007-ai" target="_blank" class="social-icon" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+        </a>
+      </div>
+      <p class="footer-copy">© 2025 Ayush A Gajbhiye. Crafted with ♥ in Nagpur.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
