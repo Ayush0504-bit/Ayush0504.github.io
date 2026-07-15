@@ -134,32 +134,18 @@ navLinks.querySelectorAll('a').forEach(link => {
 
 
 // ─── Scroll Reveal ────────────────────────────────────────────────────────────
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, 80);
-      revealObserver.unobserve(entry.target);
-    }
-  });
+const revealObserver = createIntersectionObserver(entry => {
+  setTimeout(() => entry.target.classList.add('visible'), 80);
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+observeAll('.reveal', revealObserver);
 
 
 // ─── Staggered Reveal for Groups ─────────────────────────────────────────────
-const staggerObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const items = entry.target.querySelectorAll('.skill-category, .project-card, .cert-card, .edu-card');
-      items.forEach((item, i) => {
-        setTimeout(() => {
-          item.classList.add('visible');
-        }, i * 120);
-      });
-      staggerObserver.unobserve(entry.target);
-    }
+const staggerObserver = createIntersectionObserver(entry => {
+  const items = entry.target.querySelectorAll('.skill-category, .project-card, .cert-card, .edu-card');
+  items.forEach((item, i) => {
+    setTimeout(() => item.classList.add('visible'), i * 120);
   });
 }, { threshold: 0.08 });
 
@@ -172,15 +158,10 @@ document.querySelectorAll('.skills-categories, .projects-grid, .certs-grid, .abo
 
 
 // ─── Skill Pills Stagger ──────────────────────────────────────────────────────
-const pillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.skill-pill').forEach((p, i) => {
-        p.style.animationDelay = `${i * 50}ms`;
-        p.style.animationPlayState = 'running';
-      });
-      pillObserver.unobserve(entry.target);
-    }
+const pillObserver = createIntersectionObserver(entry => {
+  entry.target.querySelectorAll('.skill-pill').forEach((p, i) => {
+    p.style.animationDelay = `${i * 50}ms`;
+    p.style.animationPlayState = 'running';
   });
 }, { threshold: 0.1 });
 
@@ -214,8 +195,7 @@ if (contactForm) {
 
     // Loading state
     submitBtn.disabled = true;
-    submitBtn.querySelector('.btn-text').textContent = 'Sending…';
-    submitBtn.querySelector('.btn-icon').textContent = '⏳';
+    setButtonContent(submitBtn, 'Sending…', '⏳');
 
     try {
       const response = await fetch(contactForm.action, {
@@ -238,8 +218,7 @@ if (contactForm) {
     } catch (err) {
       // Network / unknown error
       submitBtn.disabled = false;
-      submitBtn.querySelector('.btn-text').textContent = 'Send Message';
-      submitBtn.querySelector('.btn-icon').textContent = '→';
+      setButtonContent(submitBtn, 'Send Message', '→');
       formSuccess.style.display  = 'block';
       formSuccess.style.color    = '#ff8a65';
       formSuccess.style.borderColor = '#ff8a65';
@@ -294,14 +273,10 @@ document.head.appendChild(shakeStyle);
 const sections = document.querySelectorAll('section[id]');
 const navAnchs = document.querySelectorAll('.nav-links a');
 
-const activeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navAnchs.forEach(a => a.style.color = '');
-      const activeA = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-      if (activeA) activeA.style.color = 'var(--amber-light)';
-    }
-  });
-}, { threshold: 0.4 });
+const activeObserver = createIntersectionObserver(entry => {
+  navAnchs.forEach(a => a.style.color = '');
+  const activeA = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+  if (activeA) activeA.style.color = 'var(--amber-light)';
+}, { threshold: 0.4 }, { once: false });
 
-sections.forEach(s => activeObserver.observe(s));
+observeAll(sections, activeObserver);
