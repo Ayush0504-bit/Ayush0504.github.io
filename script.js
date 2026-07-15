@@ -34,13 +34,15 @@ function typeLoop() {
 
   setTimeout(typeLoop, speed);
 }
-typeLoop();
+if (typedEl) typeLoop();
 
 
 // ─── Particle Canvas ──────────────────────────────────────────────────────────
 (function initParticles() {
   const canvas = document.getElementById('particleCanvas');
+  if (!canvas) return;
   const ctx    = canvas.getContext('2d');
+  if (!ctx) return;
   let   W, H;
   let   particles = [];
 
@@ -110,27 +112,31 @@ typeLoop();
 
 // ─── Sticky Navbar ────────────────────────────────────────────────────────────
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+}
 
 
 // ─── Mobile Hamburger ─────────────────────────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('mobile-open');
-});
-
-// Close menu when a link is clicked
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('mobile-open');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('mobile-open');
   });
-});
+
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('mobile-open');
+    });
+  });
+}
 
 
 // ─── Scroll Reveal ────────────────────────────────────────────────────────────
@@ -231,9 +237,17 @@ if (contactForm) {
         formSuccess.style.display = 'block';
         formSuccess.textContent   = '✅ Message sent! I\'ll get back to you soon.';
       } else {
-        // Formspree returned an error
-        const data = await response.json();
-        throw new Error(data?.errors?.map(e => e.message).join(', ') || 'Submission failed.');
+        // Formspree returned an error — surface its message, but fall back to
+        // the HTTP status if the body isn't valid JSON (so the real failure
+        // isn't masked by a parse error).
+        let detail = '';
+        try {
+          const data = await response.json();
+          detail = data?.errors?.map(e => e.message).join(', ') || '';
+        } catch {
+          // Response body was not JSON; ignore and use the status below.
+        }
+        throw new Error(detail || `Submission failed (HTTP ${response.status}).`);
       }
     } catch (err) {
       // Network / unknown error
