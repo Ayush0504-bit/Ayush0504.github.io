@@ -1,0 +1,28 @@
+{
+  "name": "ayush-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio site for Ayush Gajbhiye",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "script.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 60,
+        "functions": 80,
+        "lines": 70,
+        "statements": 70
+      }
+    }
+  }
+}
